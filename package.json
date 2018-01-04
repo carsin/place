@@ -1,23 +1,17 @@
 {
   "name": "place",
-  "version": "1.0.0",
-  "description": "A clone of reddit place.",
-  "main": "server.js",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ./bin/www"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/carsin/place.git"
-  },
-  "author": "builtbycarson.com",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/carsin/place/issues"
-  },
-  "homepage": "https://github.com/carsin/place#readme",
   "dependencies": {
-    "express": "^4.16.2",
-    "socket.io": "^2.0.4"
+    "body-parser": "~1.18.2",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "express": "~4.15.5",
+    "morgan": "~1.9.0",
+    "pug": "2.0.0-beta11",
+    "serve-favicon": "~2.4.5"
   }
 }
