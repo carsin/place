@@ -1,8 +1,11 @@
 extends layout
 
 block content
-    h1= title
-    p Welcome to #{title}
+    h1#test xd
     script(src="/socket.io/socket.io.js")
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js")
     script.
         var socket = io();
+        socket.on("send canvas", (info) => {
+            console.log(info);
+        });
