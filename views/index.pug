@@ -1,8 +1,20 @@
 extends layout
 
 block content
-    h1#test xd
+    h1 Map
+    table#map(cellspacing="0")
     script(src="/socket.io/socket.io.js")
     script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js")
     script.
-        var socket = io("//localhost:3000");
+        var socket = io();
+        socket.on("send canvas", (items) => {
+            var str;
+            for (y = 0; y < items.length; y++) {
+                str += "<tr>";
+                for (x = 0; x < items[y].length; x++) {
+                    str += '<td data-x="' + x + '" data-y="' + y + '" data-cellid="0">' + items[y][x] + '</td>';
+                }
+                str += "</tr>";
+            }
+            $("#map").append(str);
+        });
