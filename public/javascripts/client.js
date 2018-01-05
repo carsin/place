@@ -1,7 +1,10 @@
 var socket = io();
 
 socket.on("send canvas", (items) => {
+    $("#map").html(" ")
+
     var str;
+
     for (y = 0; y < items.length; y++) {
         str += "<tr>";
         for (x = 0; x < items[y].length; x++) {

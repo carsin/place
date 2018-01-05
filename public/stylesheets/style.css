@@ -1,3 +1,22 @@
 body {
     font: 14px Helvetica, Arial, sans-serif;
 }
+
+#map {
+	border: 1px solid black;
+}
+
+#map td {
+	top: -1px;
+	margin: 0;
+	border: 1px solid black;
+	padding: 0;
+	width: 80px;
+	height: 80px;
+}
+
+
+#map td[data-cellid="0"] {
+	background-size: cover;
+    background-color: red;
+}
