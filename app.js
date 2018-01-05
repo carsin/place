@@ -8,7 +8,8 @@ var bodyParser = require("body-parser");
 var index = require("./routes/index");
 
 var app = express();
-var server = require("http").Server(app);
+var http = require("http");
+var server = http.Server(app);
 var io = require("socket.io")(server);
 
 // view engine setup
@@ -23,7 +24,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use(function(req, res, next) {
-    res.io = io;
     next();
 });
 
@@ -47,4 +47,12 @@ app.use(function(err, req, res, next) {
     res.render("error");
 });
 
-module.exports = {app: app, server: server};
+io.on("connection", function(socket){
+    console.log("a user connected");
+
+    socket.on("disconnect", () => {
+        console.log("a user disconnected");
+    });
+});
+
+module.exports = { app: app, server: server, };

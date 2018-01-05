@@ -5,7 +5,9 @@
  */
 
 var app = require("../app").app;
+var io = require("../app").io;
 var debug = require("debug")("place:server");
+
 
 /**
  * Get port from environment and store in Express.
