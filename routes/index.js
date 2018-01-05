@@ -5,11 +5,8 @@ var clients = {};
 
 /* GET home page. */
 router.get("/", function(req, res, next) {
-    res.io.sockets.on("connection", function(socket) {
-
-        socket.on("disconnect", function() {
-            console.log("a user has disconnected");
-        });
+    res.io.on("connection", (socket) => {
+        console.log("a user has connected");
     });
 
     res.render("index");
