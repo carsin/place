@@ -55,7 +55,6 @@ io.on("connection", function(socket){
         var data = data.toString();
         var items = data.split(/\r?\n/).map( pair => pair.split(/\s+/).map(Number) );
         items.splice(-1,1)
-        console.log(items);
         io.emit("send canvas", items)
     });
 
