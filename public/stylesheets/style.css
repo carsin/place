@@ -15,8 +15,8 @@ body {
 	height: 80px;
 }
 
-
-#map td[data-cellid="0"] {
-	background-size: cover;
-    background-color: red;
-}
+#map td[data-colorid="0"] { background-color: green; }
+#map td[data-colorid="1"] { background-color: blue; }
+#map td[data-colorid="2"] { background-color: red; }
+#map td[data-colorid="3"] { background-color: yellow; }
+#map td[data-colorid="4"] { background-color: purple; }
