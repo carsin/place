@@ -20,19 +20,21 @@ socket.on("send canvas", (items) => {
 
 $(document).click((event) => {
     let el = $(event.target);
-    let elColor = el.attr("data-colorid");
-    let elX = el.attr("data-x");
-    let elY = el.attr("data-y");
-    if (elColor >= 4) {
-        el.attr("data-colorid", 0);
-        mapArr[elY][elX] = 0;
-    } else {
-        let newColorId = parseInt(elColor) + 1;
-        el.attr("data-colorid", newColorId);
-        mapArr[elY][elX] = newColorId;
-    }
 
-    socket.emit("write canvas", mapArr);
+    if (el.is("td")) {
+        let elColor = el.attr("data-colorid");
+        let elX = el.attr("data-x");
+        let elY = el.attr("data-y");
+        if (elColor >= 4) {
+            el.attr("data-colorid", 0);
+            mapArr[elY][elX] = 0;
+        } else {
+            let newColorId = parseInt(elColor) + 1;
+            el.attr("data-colorid", newColorId);
+            mapArr[elY][elX] = newColorId;
+        }
+        socket.emit("write canvas", mapArr);
+    }
 });
 
 (function($) {
