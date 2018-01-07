@@ -58,6 +58,14 @@ io.on("connection", function(socket){
         io.emit("send canvas", items)
     });
 
+    socket.on("write canvas", (array) => {
+        var file = fs.createWriteStream('db/canvas.txt');
+        file.on('error', function(err) { /* error handling */ });
+        array.forEach(function(v) { file.write(v.join(' ') + '\n'); });
+        file.end();
+        io.emit("send canvas", array);
+    });
+
     socket.on("disconnect", () => {
         console.log("a user disconnected");
     });
